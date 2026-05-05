@@ -1,0 +1,49 @@
+---
+import Galaxy from "./components/Galaxy";
+import { RedirectIcon } from "../../shared/components/RedirectIcon"
+---
+
+<main class="w-full relative h-screen">
+    <div class="bg-black absolute w-full h-screen -z-10">
+        <Galaxy
+        density={3}
+        glowIntensity={0.4}
+        saturation={1}
+        hueShift={170}
+        twinkleIntensity={1}
+        rotationSpeed={0}
+        autoCenterRepulsion={20}
+        starSpeed={0.2}
+        client:load/>
+    </div>
+
+    <div class="flex h-screen">
+        <div class="flex flex-col flex-1 justify-center items-center">
+
+            <div class="flex flex-col gap-y-8">
+                <div class="flex flex-col text-center gap-y-1">
+                    <h1 class="text-[#0DBE1F] text-6xl font-bold">{"<Allan Herbert />"}</h1>
+                    <h2 class="text-4xl font-bold text-white">Desenvolvedor Full Stack</h2>
+                </div>
+
+                <div class="flex flex-col text-center gap-y-1 text-white font-bold text-2xl">
+                    <h3>Desenvolvedor especializado em <span class="text-[#3195FF]">TypeScript</span></h3>
+                    <h3>Para <span class="text-[#3195FF]">desenvolver sistemas confiáveis e robustos.</span></h3>
+                </div>
+
+                <div class="flex justify-center items-center gap-x-8">
+                    <div class="w-28 border-t-2 border-white"/>
+                    <div class="flex gap-x-5">
+                        <RedirectIcon client:visible imagePath="/github.svg" url="https://github.com" alt="Github"/>
+                        <RedirectIcon client:visible imagePath="/linkedin.svg" url="https://linkedin.com" alt="Linkedin"/>
+                    </div>
+                    <div class="w-28 border-t-2 border-white"/>
+                </div>
+
+                <div class="flex justify-center w-full text-white font-bold">
+                    <p class="max-w-[50%] text-[#B2BEB5] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

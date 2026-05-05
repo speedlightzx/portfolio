@@ -1,0 +1,18 @@
+---
+import { ToggleThemeButton } from "./ToggleThemeButton"
+
+---
+
+<header class="z-10 flex p-2 pl-8 pr-8 top-1 fixed items-center border rounded-full w-[65%] place-self-center">
+    <div class="w-[33.3%]">
+        <h1 class="text-[#0DBE1F] text-[32px] font-bold">{"<Allan Herbert />"}</h1>
+    </div>
+    <div class="w-[33.3%] flex justify-center">
+        <ToggleThemeButton client:load/>
+    </div>
+    <div class="flex w-[33.3%] gap-x-12 font-bold text-white justify-center">
+        <a href="#">Serviços</a>
+        <a href="#">Projetos</a>
+        <a href="#">Contato</a>
+    </div>
+</header>
