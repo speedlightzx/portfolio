@@ -1,11 +1,22 @@
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 export function RedirectIcon(
-    { imagePath, url, alt }: { imagePath:string, url:string, alt:string }
+    { imagePath, url, alt, toolTipMessage }: { imagePath:string, url:string, alt:string, toolTipMessage?:string }
 ) {
     return (
-        <img 
-        className="invert w-8 h-8 hover:cursor-pointer" 
-        src={imagePath} 
-        alt={alt} 
-        onClick={() => window.location.href = url}/>
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <img 
+                    className="invert w-8 h-8 hover:cursor-pointer transform duration-200 hover:scale-110" 
+                    src={imagePath} 
+                    alt={alt} 
+                    onClick={() => window.open(url, "_blank", "noopener,noreferrer")}/>
+                </TooltipTrigger>
+                <TooltipContent>
+                    {toolTipMessage}
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
     )
 }

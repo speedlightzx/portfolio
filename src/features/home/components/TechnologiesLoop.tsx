@@ -23,7 +23,7 @@ export function TechnologiesLoop() {
                     <img 
                     src={src}
                     alt={title}
-                    className="h-[var(--logoloop-logoHeight)] w-auto object-contain cursor-pointer"/>
+                    className="h-[var(--logoloop-logoHeight)] w-auto object-contain"/>
                 </TooltipTrigger>
                 <TooltipContent>
                     <p>{title}</p>
