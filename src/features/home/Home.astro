@@ -1,6 +1,8 @@
 ---
 import Galaxy from "./components/Galaxy";
 import { RedirectIcon } from "../../shared/components/RedirectIcon"
+import { TechnologiesLoop } from "./components/TechnologiesLoop";
+import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
 ---
 
 <main class="w-full relative h-screen">
@@ -17,33 +19,36 @@ import { RedirectIcon } from "../../shared/components/RedirectIcon"
         client:load/>
     </div>
 
-    <div class="flex h-screen">
-        <div class="flex flex-col flex-1 justify-center items-center">
+    <div class="flex w-full h-screen">
+        <div class="flex flex-col mt-[15%] w-full pb-1">
 
-            <div class="flex flex-col gap-y-8">
-                <div class="flex flex-col text-center gap-y-1">
+            <div class="flex flex-col text-center gap-y-7">
+                <div class="flex flex-col">
                     <h1 class="text-[#0DBE1F] text-6xl font-bold">{"<Allan Herbert />"}</h1>
                     <h2 class="text-4xl font-bold text-white">Desenvolvedor Full Stack</h2>
                 </div>
-
-                <div class="flex flex-col text-center gap-y-1 text-white font-bold text-2xl">
-                    <h3>Desenvolvedor especializado em <span class="text-[#3195FF]">TypeScript</span></h3>
-                    <h3>Para <span class="text-[#3195FF]">desenvolver sistemas confiáveis e robustos.</span></h3>
-                </div>
-
-                <div class="flex justify-center items-center gap-x-8">
-                    <div class="w-28 border-t-2 border-white"/>
-                    <div class="flex gap-x-5">
-                        <RedirectIcon client:visible imagePath="/github.svg" url="https://github.com" alt="Github"/>
-                        <RedirectIcon client:visible imagePath="/linkedin.svg" url="https://linkedin.com" alt="Linkedin"/>
-                    </div>
-                    <div class="w-28 border-t-2 border-white"/>
-                </div>
-
-                <div class="flex justify-center w-full text-white font-bold">
-                    <p class="max-w-[50%] text-[#B2BEB5] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
+                <div class="flex flex-col text-2xl gap-y-1">
+                    <MainSkillAndWhatSolves client:visible/>
                 </div>
             </div>
+
+            <div class="flex justify-center items-center gap-x-8 mt-10">
+                <div class="w-28 border-t-2 border-white"/>
+                <div class="flex gap-x-5">
+                    <RedirectIcon client:visible imagePath="/github.svg" url="https://github.com" alt="Github"/>
+                    <RedirectIcon client:visible imagePath="/linkedin.svg" url="https://linkedin.com" alt="Linkedin"/>
+                </div>
+                <div class="w-28 border-t-2 border-white"/>
+            </div>
+
+            <div class="flex justify-center w-full text-white font-bold mt-15">
+                <p class="w-[35%] text-[#B2BEB5] text-[18px] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
+            </div>
+
+            <div class="mt-auto w-full rounded-md p-3">
+                <TechnologiesLoop client:load/>
+            </div>
+
         </div>
     </div>
 </main>
