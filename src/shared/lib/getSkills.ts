@@ -1,9 +1,7 @@
 import type { MainSkill } from "@/features/home/types/iMainSkill"
-import type { Skill } from "../../features/home/types/iSkill"
+import type { Skill } from "@/features/home/types/iSkill"
 
-export async function GET() {
-    //integrar backend depois
-
+export function getSkills() {
     const mainSkills: MainSkill[] = [
         { name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "#3195FF" },
         { name: "React.js", whatSolves: "criar interfaces modernas e dinâmicas", hexColor: "#4E7AB5" },
@@ -29,8 +27,9 @@ export async function GET() {
         { name: "Express.js", imageUrl: "https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=FFFFFF" }
     ]
 
-    return Response.json({
-        allSkills: allSkills.sort(() => Math.random() - 0.5),
+    return {
+        allSkills,
         mainSkills
-    })
+    }
+
 }

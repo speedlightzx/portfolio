@@ -3,7 +3,6 @@ import Galaxy from "./components/Galaxy";
 import { RedirectIcon } from "../../shared/components/RedirectIcon"
 import { TechnologiesLoop } from "./components/TechnologiesLoop";
 import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
-import { Button } from "@/components/ui/button";
 ---
 
 <main class="w-full relative h-screen">
@@ -21,15 +20,15 @@ import { Button } from "@/components/ui/button";
     </div>
 
     <div class="flex w-full h-screen">
-        <div class="flex flex-col mt-[15%] w-full pb-1">
+        <div class="flex flex-col mt-[40%] md:mt-[15%] w-full pb-1">
 
             <div class="flex flex-col text-center gap-y-7">
                 <div class="flex flex-col">
-                    <h1 class="text-[#0DBE1F] text-6xl font-bold">{"<Allan Herbert />"}</h1>
-                    <h2 class="text-4xl font-bold text-white">Desenvolvedor Full Stack</h2>
+                    <h1 class="text-[#0DBE1F] text-4xl md:text-6xl font-bold">{"<Allan Herbert />"}</h1>
+                    <h2 class="text-2xl md:text-4xl font-bold text-white">Desenvolvedor Full Stack</h2>
                 </div>
                 <div class="flex flex-col text-2xl gap-y-1">
-                    <MainSkillAndWhatSolves client:visible/>
+                    <MainSkillAndWhatSolves client:load/>
                 </div>
             </div>
 
@@ -43,7 +42,7 @@ import { Button } from "@/components/ui/button";
             </div>
 
             <div class="flex justify-center w-full text-white font-bold mt-15">
-                <p class="w-[35%] text-[#B2BEB5] text-[18px] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
+                <p class=" md:w-[35%] text-[#B2BEB5] text-[18px] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
             </div>
 
             <div class="mt-auto w-full rounded-md p-3">
@@ -57,7 +56,7 @@ import { Button } from "@/components/ui/button";
             <div class="w-full flex flex-col items-center gap-y-6">
                 <div class="flex flex-col items-center">
                     <h1 class="text-white font-bold text-3xl">Sobre mim</h1>
-                    <p class="text-white text-center max-w-[75%]">
+                    <p class="text-white text-center md:max-w-[75%]">
         Olá! Me chamo Allan e sou Desenvolvedor Full Stack.
         Desenvolvo landing pages, sistemas web e bots personalizados, transformando problemas reais em soluções funcionais e eficientes.
 
@@ -67,10 +66,10 @@ import { Button } from "@/components/ui/button";
                 </div>
 
                 <div class="flex justify-center w-full">
-                    <Button className="hover:cursor-pointer" variant={'outline'} size={'default'}>
+                    <button class="downloadCv rounded-md border border-purple-500 flex p-3 gap-x-4 hover:cursor-pointer transition duration-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
-                        Baixar currículo
-                    </Button>
+                        <p class="text-white">Baixar currículo</p>
+                    </button>
                 </div>
             </div>
         </div>

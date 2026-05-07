@@ -128,3 +128,19 @@
     @apply font-sans;
     }
 }
+
+.downloadCv:hover svg {
+  @apply stroke-black
+}
+
+.downloadCv:hover p {
+  @apply text-black
+}
+
+.downloadCv svg {
+  @apply stroke-white
+}
+
+.downloadCv:hover {
+  @apply bg-white
+}

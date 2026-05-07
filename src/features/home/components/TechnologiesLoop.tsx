@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import LogoLoop, { type LogoItem } from "./LogoLoop";
 import type { Skill } from "../types/iSkill";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/components/ui/tooltip";
+import { getSkills } from "@/shared/lib/getSkills";
 
 export function TechnologiesLoop() {
-
-    useEffect(() => {
-        fetch('/api/skills')
-        .then(res => res.json())
-        .then(res => setSkills(res.allSkills))
-    }, [])
-
-    const [skills, setSkills] = useState<Skill[]>([])
+    const { allSkills } = getSkills()
+    const [skills, setSkills] = useState<Skill[]>(allSkills)
 
     const renderItem = (item:LogoItem) => {
         const src = "src" in item ? item.src : undefined

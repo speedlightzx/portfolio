@@ -1,4 +1,4 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/components/ui/tooltip";
 
 export function RedirectIcon(
     { imagePath, url, alt, toolTipMessage }: { imagePath:string, url:string, alt:string, toolTipMessage?:string }
