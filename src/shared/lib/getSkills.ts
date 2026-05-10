@@ -4,11 +4,11 @@ import type { Skill } from "@/features/home/types/iSkill"
 export function getSkills() {
     const mainSkills: MainSkill[] = [
         { name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "#3195FF" },
-        { name: "React.js", whatSolves: "criar interfaces modernas e dinâmicas", hexColor: "#4E7AB5" },
+        { name: "React.js", whatSolves: "criar interfaces modernas e dinâmicas", hexColor: "#5396d5" },
         { name: "Astro.js", whatSolves: "criar sites performáticos e ultra rápidos", hexColor: "#C822FF" },
         { name: "Nest.js", whatSolves: "desenvolver backends seguros e escaláveis", hexColor: "#D41717" },
         { name: "MongoDB", whatSolves: "armazenar dados flexíveis com segurança", hexColor: "#58AA50" },
-        { name: "MySQL", whatSolves: "armazenar dados estruturados com eficiência", hexColor: "#018FB4" },
+        { name: "MySQL", whatSolves: "armazenar dados estruturados com eficiência", hexColor: "#007ccf" },
     ]
     
     const allSkills: Skill[] = [

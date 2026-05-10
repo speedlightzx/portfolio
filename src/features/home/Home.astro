@@ -6,7 +6,7 @@ import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
 ---
 
 <main class="w-full relative h-screen">
-    <div class="bg-black absolute w-full h-screen -z-10">
+    <div class="bg-black w-full h-screen fixed -z-10">
         <Galaxy
         density={3}
         glowIntensity={0.4}
@@ -16,9 +16,9 @@ import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
         rotationSpeed={0}
         autoCenterRepulsion={20}
         starSpeed={0.2}
-        client:load/>
+        client:idle/>
     </div>
-
+    
     <div class="flex w-full h-screen">
         <div class="flex flex-col mt-[40%] md:mt-[15%] w-full pb-1">
 
@@ -35,8 +35,8 @@ import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
             <div class="flex justify-center items-center gap-x-8 mt-10">
                 <div class="w-28 border-t-2 border-white"/>
                 <div class="flex gap-x-5">
-                    <RedirectIcon client:visible imagePath="/github.svg" url="https://github.com" alt="Github" toolTipMessage="Veja meu GitHub"/>
-                    <RedirectIcon client:visible imagePath="/linkedin.svg" url="https://linkedin.com" alt="Linkedin" toolTipMessage="Veja meu Linkedin"/>
+                    <RedirectIcon client:idle imagePath="/github.svg" url="https://github.com/speedlightzx" alt="Perfil no github" toolTipMessage="Veja meu GitHub"/>
+                    <RedirectIcon client:idle imagePath="/linkedin.svg" url="https://www.linkedin.com/in/allan-herbert-388631296/" alt="Perfil no linkedin" toolTipMessage="Veja meu Linkedin"/>
                 </div>
                 <div class="w-28 border-t-2 border-white"/>
             </div>
@@ -46,12 +46,12 @@ import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
             </div>
 
             <div class="mt-auto w-full rounded-md p-3">
-                <TechnologiesLoop client:load/>
+                <TechnologiesLoop client:visible/>
             </div>
         </div>
     </div>
 
-    <div class="bg-black pb-15">
+    <div class="bg-black/60 pb-15">
         <div class="pt-25">
             <div class="w-full flex flex-col items-center gap-y-6">
                 <div class="flex flex-col items-center">
@@ -66,7 +66,7 @@ import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
                 </div>
 
                 <div class="flex justify-center w-full">
-                    <button class="downloadCv rounded-md border border-purple-500 flex p-3 gap-x-4 hover:cursor-pointer transition duration-400">
+                    <button class="downloadCv rounded-md border border-purple-500 flex p-3 gap-x-1.5 hover:cursor-pointer transition duration-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
                         <p class="text-white">Baixar currículo</p>
                     </button>
