@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import type { MainSkill } from "../types/iMainSkill"
-import { getSkills } from "@/shared/lib/getSkills"
 
 export function MainSkillAndWhatSolves() {
-    const { mainSkills } = getSkills()
-
     useEffect(() => {
         let interval: NodeJS.Timeout
         let skillIndex = 1
 
         const mainSkillsText = async() => {
+            const mainSkills = await fetch("/api/getSkills")
+            .then(res => res.json())
+            .then(data => data.mainSkills as MainSkill[])
+
             setCurrentSkill({ name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "#3195FF" })
             
             interval = setInterval(() => {

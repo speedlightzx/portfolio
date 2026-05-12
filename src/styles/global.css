@@ -144,3 +144,19 @@
 .downloadCv:hover {
   @apply bg-white
 }
+
+.projectCircleContext {
+  padding-left: 12px;
+}
+
+.projectCircleContext::before {
+  content: '';
+  position: absolute;
+  border-radius: 100%;
+  background: #00FF22;
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
