@@ -17,9 +17,10 @@ export function ProjectList() {
     }, [])
 
     return (
-        <div className="flex flex-wrap justify-center w-full h-full gap-x-8 gap-y-5">
+        <div className="flex flex-wrap justify-center shrink-0 w-full h-full gap-x-8 gap-y-5">
             {projects.map((p, i) => (
                 <ProjectCard
+                key={i}
                 projectDetails={p}
                 />
             ))}

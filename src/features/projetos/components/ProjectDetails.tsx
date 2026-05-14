@@ -4,6 +4,9 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogT
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/components/ui/carousel";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from "remark-gfm";
 
 export function ProjectDetails({ project, children }: { project:Project, children:ReactNode })  {
 
@@ -16,19 +19,40 @@ export function ProjectDetails({ project, children }: { project:Project, childre
                 <DialogHeader>
                     <DialogTitle>{project.title}</DialogTitle>
                 </DialogHeader>
-                <div className="flex flex-col gap-y-10">
+                <div className="flex flex-col gap-y-2">
                     <div className="flex flex-col gap-y-8">
-                        <section>
-                            { /* carrossel de imagens do projeto */ }
-                        </section>
-                        <p>{project.description}</p>
+                        {project.showcaseImages &&
+                        <Carousel className="w-[90%] self-center">
+                            <CarouselContent>
+                                {project.showcaseImages?.map((imgUrl, i) => (
+                                    <CarouselItem className="basis-1/3">
+                                        <Dialog>
+                                            <DialogTrigger asChild>
+                                                <img className="rounded-md w-52 h-52" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
+                                            </DialogTrigger>
+                                            <DialogContent className="max-w-full max-h-[50%] w-full h-full flex items-center justify-center">
+                                                <img className="w-[90%] h-[90%] object-cover rounded-md" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
+                                            </DialogContent>
+                                        </Dialog>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="-left-8.5"/>
+                            <CarouselNext className="-right-8.5" />
+                        </Carousel>              
+                        }
+                        <p className="prose whitespace-pre-line break-all">
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                {project.description}
+                            </ReactMarkdown>
+                        </p>
                     </div>
                     <div className="flex flex-col gap-y-1">
-                        <div className="flex flex-col gap-x-1">
-                            <p className="text-[10px]">Tecnologias usadas:</p>
+                        <div className="flex flex-col gap-y-1">
+                            <p className="text-[10px]">Todas as tecnologias usadas no projeto:</p>
                             <div className="flex gap-x-2">
                                 {project.technologies.map((t) => (
-                                    <Badge style={{ background: t.hexColor }} className='text-black'>{t.name}</Badge>
+                                    <Badge style={{ background: t.hexColor }} className='text-white'>{t.name}</Badge>
                                 ))}
                             </div>
                         </div>
@@ -45,7 +69,7 @@ export function ProjectDetails({ project, children }: { project:Project, childre
                         {project.githubRepositoryUrl ? 'Ver repositório' : 'Repositório privado ou indisponível' }
                     </Button>
                     <Button
-                    className={`${project.githubRepositoryUrl ? 'hover:cursor-pointer bg-green-600' : 'hover:cursor-not-allowed'} `} 
+                    className={`${project.productionUrl ? 'hover:cursor-pointer bg-green-600' : 'hover:cursor-not-allowed'} `} 
                     variant='default'
                     disabled={project.productionUrl ? false : true}
                     onClick={() => window.open(project.productionUrl, '_blank', 'noopener, noreferrer')}
