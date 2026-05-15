@@ -1,0 +1,19 @@
+---
+import blackhole from '../../assets/black-hole.gif';
+import { ProjectList } from './components/ProjectList';
+---
+
+<main class="w-full h-screen">
+    <div class="fixed -z-10 w-full h-screen smoo">
+        <img src={blackhole.src} alt="background black hole" class="w-full h-full object-cover brightness-30">
+    </div>
+
+    <div class="flex w-full h-full justify-center">
+        <div class="mt-[15%] sm:mt-[10%] lg:mt-[6%] gap-y-15 flex flex-col w-full items-center">
+            <h1 class="text-2xl md:text-3xl text-white font-bold">Conheça meus projetos</h1>
+            <section class="flex items-center justify-center w-full h-full">
+                <ProjectList client:visible/>
+            </section>
+        </div>
+    </div>
+</main> 
