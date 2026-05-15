@@ -3,7 +3,8 @@ import type { Project } from "@/features/projetos/types/Project"
 export async function GET() {
 
     const projects: Project[] = [
-        { 
+        {
+            id: 1,
             title: "Ordo Realitas",
             shortDescription: "Ordo Realitas é um bot de RPG de Ordem Paranormal dentro do discord.",
             description: "### Ordo Realitas é um bot de RPG de Ordem Paranormal dentro do discord.\n**voce** __pode__ _fazer_ isso - ali aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccccc", 
@@ -26,7 +27,8 @@ export async function GET() {
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Xf7BbnAPmPctDde26hon-eJtnCoWgz2VAQ&s',
             ]
         },
-        { 
+        {
+            id: 2,
             title: "Site Ordo Realitas",
             shortDescription: "Landing Page interativa para meu bot Ordo Realitas",
             description: "Landing Page interativa e responsiva feita para meu bot do Discord Ordo Realitas.", 

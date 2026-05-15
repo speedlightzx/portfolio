@@ -15,17 +15,17 @@ export function ProjectDetails({ project, children }: { project:Project, childre
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="max-w-[50%]! w-full">
+            <DialogContent className="lg:max-w-[50%] sm:max-w-[80%] max-w-[90%] w-full">
                 <DialogHeader>
                     <DialogTitle>{project.title}</DialogTitle>
                 </DialogHeader>
                 <div className="flex flex-col gap-y-2">
                     <div className="flex flex-col gap-y-8">
                         {project.showcaseImages &&
-                        <Carousel className="w-[90%] self-center">
+                        <Carousel className="w-52 sm:w-[90%] self-center">
                             <CarouselContent>
                                 {project.showcaseImages?.map((imgUrl, i) => (
-                                    <CarouselItem className="basis-1/3">
+                                    <CarouselItem className="basis-1/1 sm:basis-1/2 xl:basis-1/3">
                                         <Dialog>
                                             <DialogTrigger asChild>
                                                 <img className="rounded-md w-52 h-52" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
