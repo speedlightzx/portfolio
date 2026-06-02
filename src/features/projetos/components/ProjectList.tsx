@@ -8,11 +8,12 @@ export function ProjectList() {
 
     useEffect(() => {
         const getProjects = async() => {
-            await fetch('/api/getProjects')
+            await fetch(`${import.meta.env.PUBLIC_API_URL}/projects`)
             .then(res => res.json())
-            .then(data => setProjects(data.projects as Project[]))
+            .then(data => setProjects(data as Project[]))
         }
 
+        console.log(projects)
         getProjects()
     }, [])
 

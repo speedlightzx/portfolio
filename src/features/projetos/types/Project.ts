@@ -7,8 +7,8 @@ export interface Project {
     shortDescription:string
     technologies:Techonology[]
     context:string
-    thumbnail:string
-    showcaseImages?:string[]
+    thumbnailUrl:string
+    showcaseImagesUrl?:string[]
     githubRepositoryUrl?:string
     productionUrl?:string
 }
