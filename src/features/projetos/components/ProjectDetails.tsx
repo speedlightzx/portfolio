@@ -15,46 +15,49 @@ export function ProjectDetails({ project, children }: { project:Project, childre
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="lg:max-w-[50%] sm:max-w-[80%] max-w-[90%] w-full">
+            <DialogContent className="lg:max-w-[50%] sm:max-w-[80%] max-w-[95%] w-full">
                 <DialogHeader>
-                    <DialogTitle>{project.title}</DialogTitle>
+                    <DialogTitle>{project.title}</  DialogTitle>
                 </DialogHeader>
-                <div className="flex flex-col gap-y-2">
+                <div className="flex flex-col gap-y-2 overflow-y-auto! overflow-x-hidden no-scrollbar! h-100 md:h-auto">
                     <div className="flex flex-col gap-y-8">
-                        {project.showcaseImages &&
-                        <Carousel className="w-52 sm:w-[90%] self-center">
+                        {project.showcaseImagesUrl &&
+                        <Carousel className="w-[90%] self-center">
                             <CarouselContent>
-                                {project.showcaseImages?.map((imgUrl, i) => (
-                                    <CarouselItem className="basis-1/1 sm:basis-1/2 xl:basis-1/3">
+                                {project.showcaseImagesUrl?.map((imgUrl, i) => (
+                                    <CarouselItem key={i} className="basis-full sm:basis-1/2 xl:basis-1/3">
                                         <Dialog>
                                             <DialogTrigger asChild>
-                                                <img className="rounded-md w-52 h-52" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
+                                                <img className="w-full h-50 aspect-video object-cover rounded-md" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
                                             </DialogTrigger>
-                                            <DialogContent className="max-w-full max-h-[50%] w-full h-full flex items-center justify-center">
-                                                <img className="w-[90%] h-[90%] object-cover rounded-md" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
+                                            <DialogContent className="md:max-w-[55%]! max-w-[95%]! max-h-[60%] w-full h-full flex items-center justify-center">
+                                                <img className="w-full h-full max-w-full max-h-[85vh] object-contain" src={imgUrl} alt={`Imagem de exibição do projeto ${i}`}/>
                                             </DialogContent>
                                         </Dialog>
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious className="-left-8.5"/>
-                            <CarouselNext className="-right-8.5" />
+                            <CarouselPrevious className="-left-5 md:-left-8.5"/>
+                            <CarouselNext className="-right-5 md:-right-8.5" />
                         </Carousel>              
                         }
-                        <p className="prose whitespace-pre-line break-all">
+                        <div className="prose white break-words">
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                 {project.description}
                             </ReactMarkdown>
-                        </p>
+                        </div>
                     </div>
-                    <div className="flex flex-col gap-y-1">
-                        <div className="flex flex-col gap-y-1">
-                            <p className="text-[10px]">Todas as tecnologias usadas no projeto:</p>
-                            <div className="flex gap-x-2">
-                                {project.technologies.map((t) => (
-                                    <Badge style={{ background: t.hexColor }} className='text-white'>{t.name}</Badge>
-                                ))}
-                            </div>
+                    <div className="flex flex-col gap-y-1 mt-3">
+                        <p className="text-[10px]">Todas as tecnologias usadas no projeto:</p>
+                        <div className="flex flex-wrap gap-1">
+                            {project.technologies.map((t) => (
+                                <Badge 
+                                key={t.name}
+                                style={{ background: `#${t.hexColor}` }} 
+                                className='text-white'>
+                                    {t.name}
+                                </Badge>
+                            ))}
                         </div>
                     </div>
                 </div>

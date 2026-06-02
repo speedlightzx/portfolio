@@ -8,9 +8,9 @@ export function TechnologiesLoop() {
 
     useEffect(() => {
         const getSkills = async() => {
-            await fetch("/api/getSkills")
+            await fetch(`${import.meta.env.PUBLIC_API_URL}/skills`)
             .then(res => res.json())
-            .then(data => setSkills(data.allSkills as Skill[]))
+            .then(data => setSkills(data.skills as Skill[]))
         }
 
         getSkills()

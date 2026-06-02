@@ -4,16 +4,17 @@ import { ProjectDetails } from "./ProjectDetails";
 
 export function ProjectCard({ projectDetails }: { projectDetails:Project }) {
 
+    console.log(projectDetails)
     return (
         <div className="w-92.5 h-113 border-2 border-purple-500 rounded-lg">
-            <div className="relative h-[50%] overflow-hidden">       
+            <div className="relative h-[50%]">       
                 <div className="p-1 text-white absolute top-2 right-2 z-10 flex border border-[#00FF22] rounded-full">
                     <div className="projectCircleContext"/>
                     <h5 className="text-[12px] leading-none">{projectDetails.context}</h5>
                 </div>
                 <img 
-                src={projectDetails.thumbnail} 
-                className="h-full w-full backdrop-blur-md object-cover rounded-lg"
+                src={projectDetails.thumbnailUrl} 
+                className="h-full w-full backdrop-blur-md opacity-75 object-cover rounded-lg"
                 />
             </div>
             <div className="p-2.5 flex flex-col w-full h-[50%] justify-between">
@@ -26,11 +27,11 @@ export function ProjectCard({ projectDetails }: { projectDetails:Project }) {
                     </div>
                 </div>
                 <div className="flex flex-col">
-                    <div className="flex flex-col gap-y-1 mt-5">
+                    <div className="flex flex-col gap-y-1">
                         <p className="text-white text-[10px] opacity-50 pl-1">Principais tecnologias:</p>
                         <div className="flex gap-x-2">
                             {projectDetails.technologies.slice(0, 3).map((t) => (
-                                <Badge style={{ background: t.hexColor }} className='text-white'>{t.name}</Badge>
+                                <Badge key={t.name} style={{ background: `#${t.hexColor}` }} className='text-white'>{t.name}</Badge>
                             ))}
                         </div>
                     </div>

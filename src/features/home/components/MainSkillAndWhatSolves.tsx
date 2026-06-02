@@ -7,12 +7,12 @@ export function MainSkillAndWhatSolves() {
         let skillIndex = 1
 
         const mainSkillsText = async() => {
-            const mainSkills = await fetch("/api/getSkills")
+            const mainSkills = await fetch(`${import.meta.env.PUBLIC_API_URL}/skills`)
             .then(res => res.json())
             .then(data => data.mainSkills as MainSkill[])
 
-            setCurrentSkill({ name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "#3195FF" })
-            
+            setCurrentSkill({ name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "3195FF" })
+
             interval = setInterval(() => {
                 if(skillIndex >= mainSkills.length) {
                     skillIndex = 0
@@ -33,10 +33,10 @@ export function MainSkillAndWhatSolves() {
     return (
         <div>
             <h3 className="text-white text-[18px] sm:text-[24px]">
-                Desenvolvedor especializado em <span className="font-bold" style={{ color: currentSkill?.hexColor }}>{currentSkill?.name}</span>
+                Desenvolvedor especializado em <span className="font-bold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.name}</span>
             </h3>
             <h3 className="text-white text-[18px] sm:text-[24px]">
-                Para <span className="font-bold" style={{ color: currentSkill?.hexColor }}>{currentSkill?.whatSolves}</span>
+                Para <span className="font-bold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.whatSolves}</span>
             </h3>
         </div>
     )

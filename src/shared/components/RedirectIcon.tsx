@@ -20,7 +20,10 @@ export function RedirectIcon(
                     className={`invert w-10 h-10 hover:cursor-pointer transform duration-200 hover:scale-110`} 
                     src={imagePath} 
                     alt={alt} 
-                    onClick={() => window.open(url, "_blank", "noopener,noreferrer")}/>
+                    onClick={() => {
+                        if(!url) return
+                        window.open(url, "_blank", "noopener,noreferrer")
+                    }}/>
                 </TooltipTrigger>
                 <TooltipContent>
                     {toolTipMessage}
