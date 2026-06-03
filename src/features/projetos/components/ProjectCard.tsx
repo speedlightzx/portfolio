@@ -4,7 +4,6 @@ import { ProjectDetails } from "./ProjectDetails";
 
 export function ProjectCard({ projectDetails }: { projectDetails:Project }) {
 
-    console.log(projectDetails)
     return (
         <div className="w-92.5 h-113 border-2 border-purple-500 rounded-lg">
             <div className="relative h-[50%]">       
@@ -13,17 +12,18 @@ export function ProjectCard({ projectDetails }: { projectDetails:Project }) {
                     <h5 className="text-[12px] leading-none">{projectDetails.context}</h5>
                 </div>
                 <img 
-                src={projectDetails.thumbnailUrl} 
+                src={projectDetails.thumbnailUrl}
+                alt={`Thubmnail do projeto ${projectDetails.title}`}
                 className="h-full w-full backdrop-blur-md opacity-75 object-cover rounded-lg"
                 />
             </div>
             <div className="p-2.5 flex flex-col w-full h-[50%] justify-between">
-                <div className="flex flex-col justify-between h-[50%]">
+                <div className="flex flex-col h-[50%]">
                     <div className="flex w-full justify-between items-center">
                         <h1 className="text-white font-bold text-[18px]">{projectDetails.title}</h1>
                     </div>
-                    <div>
-                        <p className="text-white text-center opacity-60 whitespace-pre-line wrap-break-word line-clamp-3 max-w-full">{projectDetails.shortDescription}</p>
+                    <div className="h-full flex justify-center">
+                        <p className="text-white self-center place-self-center text-center opacity-60 whitespace-pre-line wrap-break-word line-clamp-3 max-w-full">{projectDetails.shortDescription}</p>
                     </div>
                 </div>
                 <div className="flex flex-col">
@@ -37,7 +37,7 @@ export function ProjectCard({ projectDetails }: { projectDetails:Project }) {
                     </div>
                     <div className="mt-2 flex justify-center">
                     <ProjectDetails project={projectDetails}>
-                        <button className="w-[99%] text-white font-bold text-[14px] bg-[#1505FF] rounded-lg p-2 hover:cursor-pointer">Ver projeto</button>
+                        <button className="w-[99%] text-white font-bold text-[14px] bg-[#1505FF] hover:bg-[#0d00c1] transition duration-200 rounded-lg p-2 hover:cursor-pointer">Ver projeto</button>
                     </ProjectDetails>
                     </div>
                 </div>

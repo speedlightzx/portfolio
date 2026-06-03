@@ -2,18 +2,16 @@ import { useEffect, useState } from "react";
 import LogoLoop, { type LogoItem } from "./LogoLoop";
 import type { Skill } from "../types/iSkill";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/components/ui/tooltip";
+import { loadSkills } from "../stores/skillStore";
 
 export function TechnologiesLoop() {
     const [skills, setSkills] = useState<Skill[]>([])
 
     useEffect(() => {
-        const getSkills = async() => {
-            await fetch(`${import.meta.env.PUBLIC_API_URL}/skills`)
-            .then(res => res.json())
-            .then(data => setSkills(data.skills as Skill[]))
-        }
-
-        getSkills()
+        loadSkills().then((data) => {
+            const skillsData = data?.skills
+            setSkills(skillsData!)
+        })
     }, [])
 
     const renderItem = (item:LogoItem) => {
@@ -39,9 +37,12 @@ export function TechnologiesLoop() {
         <TooltipProvider>
             <LogoLoop
             
-            logos={skills.map(s => (
+            logos={skills
+                .map(s => (
                 { src: s.imageUrl, alt: s.name, title: s.name }
-            ))}
+            ))
+            .sort(() => Math.random() - 0.5)
+        }
 
             direction="left"
             width={'100%'}

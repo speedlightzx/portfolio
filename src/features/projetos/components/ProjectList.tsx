@@ -13,7 +13,6 @@ export function ProjectList() {
             .then(data => setProjects(data as Project[]))
         }
 
-        console.log(projects)
         getProjects()
     }, [])
 

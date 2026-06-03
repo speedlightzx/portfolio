@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react"
 import type { MainSkill } from "../types/iMainSkill"
+import { loadSkills } from "../stores/skillStore"
 
 export function MainSkillAndWhatSolves() {
     useEffect(() => {
         let interval: NodeJS.Timeout
         let skillIndex = 1
 
-        const mainSkillsText = async() => {
-            const mainSkills = await fetch(`${import.meta.env.PUBLIC_API_URL}/skills`)
-            .then(res => res.json())
-            .then(data => data.mainSkills as MainSkill[])
+        loadSkills().then((data) => {
+            const mainSkills = data?.mainSkills
 
             setCurrentSkill({ name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "3195FF" })
 
             interval = setInterval(() => {
-                if(skillIndex >= mainSkills.length) {
+                if(skillIndex >= mainSkills!.length) {
                     skillIndex = 0
                     return
                 }
 
-                setCurrentSkill(mainSkills[skillIndex])
+                setCurrentSkill(mainSkills![skillIndex])
                 skillIndex++
             }, 8000)
-        }
+        })
 
-        mainSkillsText()
         return () => clearInterval(interval)
     }, [])
 
@@ -33,10 +31,10 @@ export function MainSkillAndWhatSolves() {
     return (
         <div>
             <h3 className="text-white text-[18px] sm:text-[24px]">
-                Desenvolvedor especializado em <span className="font-bold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.name}</span>
+                Desenvolvedor especializado em <span className="font-extrabold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.name}</span>
             </h3>
             <h3 className="text-white text-[18px] sm:text-[24px]">
-                Para <span className="font-bold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.whatSolves}</span>
+                Para <span className="font-extrabold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.whatSolves}</span>
             </h3>
         </div>
     )

@@ -15,13 +15,13 @@ export function ProjectDetails({ project, children }: { project:Project, childre
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="lg:max-w-[50%] sm:max-w-[80%] max-w-[95%] w-full">
+            <DialogContent className="lg:max-w-[55%] sm:max-w-[80%] max-w-[95%] w-full">
                 <DialogHeader>
                     <DialogTitle>{project.title}</  DialogTitle>
                 </DialogHeader>
-                <div className="flex flex-col gap-y-2 overflow-y-auto! overflow-x-hidden no-scrollbar! h-100 md:h-auto">
+                <div className="flex flex-col gap-y-2 overflow-y-auto! overflow-x-hidden max-h-120 md:max-h-145">
                     <div className="flex flex-col gap-y-8">
-                        {project.showcaseImagesUrl &&
+                        {project.showcaseImagesUrl!.length > 0 &&
                         <Carousel className="w-[90%] self-center">
                             <CarouselContent>
                                 {project.showcaseImagesUrl?.map((imgUrl, i) => (
@@ -41,7 +41,7 @@ export function ProjectDetails({ project, children }: { project:Project, childre
                             <CarouselNext className="-right-5 md:-right-8.5" />
                         </Carousel>              
                         }
-                        <div className="prose white break-words">
+                        <div className="prose break-words">
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                 {project.description}
                             </ReactMarkdown>
