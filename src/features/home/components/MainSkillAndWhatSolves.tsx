@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react"
 import type { MainSkill } from "../types/iMainSkill"
+import { loadSkills } from "../stores/skillStore"
 
 export function MainSkillAndWhatSolves() {
     useEffect(() => {
         let interval: NodeJS.Timeout
         let skillIndex = 1
 
-        const mainSkillsText = async() => {
-            const mainSkills = await fetch(`${import.meta.env.PUBLIC_API_URL}/skills`)
-            .then(res => res.json())
-            .then(data => data.mainSkills as MainSkill[])
+        loadSkills().then((data) => {
+            const mainSkills = data?.mainSkills
 
             setCurrentSkill({ name: "TypeScript", whatSolves: "desenvolver sistemas confiáveis e robustos", hexColor: "3195FF" })
 
             interval = setInterval(() => {
-                if(skillIndex >= mainSkills.length) {
+                if(skillIndex >= mainSkills!.length) {
                     skillIndex = 0
                     return
                 }
 
-                setCurrentSkill(mainSkills[skillIndex])
+                setCurrentSkill(mainSkills![skillIndex])
                 skillIndex++
             }, 8000)
-        }
+        })
 
-        mainSkillsText()
         return () => clearInterval(interval)
     }, [])
 
