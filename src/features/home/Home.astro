@@ -3,7 +3,6 @@ import Galaxy from "./components/Galaxy";
 import { RedirectIcon } from "../../shared/components/RedirectIcon"
 import { TechnologiesLoop } from "./components/TechnologiesLoop";
 import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
-import { DownloadResume } from "./components/DownloadResume";
 ---
 
 <main class="w-full relative h-screen">
@@ -28,21 +27,21 @@ import { DownloadResume } from "./components/DownloadResume";
                     <h1 class="text-[#0DBE1F] text-4xl md:text-6xl font-bold">{"<Allan Herbert />"}</h1>
                     <h2 class="text-2xl md:text-4xl font-bold text-white">Desenvolvedor Full Stack</h2>
                 </div>
-                <div class="flex flex-col text-2xl gap-y-1">
+                <div class="flex flex-col text-2xl gap-y-1 p-1">
                     <MainSkillAndWhatSolves client:load/>
                 </div>
             </div>
 
-            <div class="flex justify-center items-center gap-x-8 mt-10">
+            <div class="flex justify-center items-center gap-x-8 mt-10 p-3">
                 <div class="w-28 border-t-2 border-white"/>
-                <div class="flex gap-x-5">
+                <div class="flex gap-x-5"> 
                     <RedirectIcon client:idle imagePath="/github.svg" url="https://github.com/speedlightzx" alt="Perfil no github" toolTipMessage="Veja meu GitHub"/>
                     <RedirectIcon client:idle imagePath="/linkedin.svg" url="https://www.linkedin.com/in/allan-herbert-388631296/" alt="Perfil no linkedin" toolTipMessage="Veja meu Linkedin"/>
                 </div>
                 <div class="w-28 border-t-2 border-white"/>
             </div>
 
-            <div class="flex justify-center w-full text-white font-bold mt-15">
+            <div class="flex justify-center w-full text-white font-bold mt-12 md:mt-15 p-1">
                 <p class=" md:w-[35%] text-[#B2BEB5] text-[18px] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
             </div>
 
@@ -66,7 +65,15 @@ import { DownloadResume } from "./components/DownloadResume";
                     </p>
                 </div>
 
-                <DownloadResume client:visible/>
+                <div class="flex justify-center w-full">
+                    <a 
+                    href="https://jydmotbulpwezvpkmbet.supabase.co/storage/v1/object/public/curriculo/curriculo-allan-dev.pdf"
+                    target="_blank"
+                    class="downloadCv rounded-md border border-purple-500 flex p-3 gap-x-1.5 hover:cursor-pointer transition duration-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+                        <p class="text-white">Baixar currículo</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>    

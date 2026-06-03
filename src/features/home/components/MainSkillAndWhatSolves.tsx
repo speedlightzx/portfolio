@@ -31,10 +31,10 @@ export function MainSkillAndWhatSolves() {
     return (
         <div>
             <h3 className="text-white text-[18px] sm:text-[24px]">
-                Desenvolvedor especializado em <span className="font-bold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.name}</span>
+                Desenvolvedor especializado em <span className="font-extrabold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.name}</span>
             </h3>
             <h3 className="text-white text-[18px] sm:text-[24px]">
-                Para <span className="font-bold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.whatSolves}</span>
+                Para <span className="font-extrabold" style={{ color: `#${currentSkill?.hexColor}` }}>{currentSkill?.whatSolves}</span>
             </h3>
         </div>
     )

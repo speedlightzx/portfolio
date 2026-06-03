@@ -15,8 +15,12 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   integrations: [linter(), react()],
 
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'load'
+  },
+
   vite: {
     plugins: [tailwindcss()]
-  },
-  adapter: vercel()
+  }
 });
