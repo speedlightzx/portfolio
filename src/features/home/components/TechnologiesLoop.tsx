@@ -47,7 +47,7 @@ export function TechnologiesLoop() {
             direction="left"
             width={'100%'}
             logoHeight={80}
-            speed={65}
+            speed={70}
             scaleOnHover
             renderItem={renderItem}/>
         </TooltipProvider>

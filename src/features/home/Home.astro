@@ -1,22 +1,13 @@
 ---
-import Galaxy from "./components/Galaxy";
 import { RedirectIcon } from "../../shared/components/RedirectIcon"
 import { TechnologiesLoop } from "./components/TechnologiesLoop";
 import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
+import spiral from '../../assets/spiral.webp';
 ---
 
 <main class="w-full relative h-screen">
     <div class="bg-black w-full h-screen fixed -z-10">
-        <Galaxy
-        density={3}
-        glowIntensity={0.4}
-        saturation={1}
-        hueShift={170}
-        twinkleIntensity={1}
-        rotationSpeed={0}
-        autoCenterRepulsion={20}
-        starSpeed={0.2}
-        client:idle/>
+        <img src={spiral.src} alt="background black hole" class="w-full h-full object-cover brightness-20">
     </div>
     
     <div class="flex w-full h-screen">
@@ -41,11 +32,11 @@ import { MainSkillAndWhatSolves } from "./components/MainSkillAndWhatSolves";
                 <div class="w-28 border-t-2 border-white"/>
             </div>
 
-            <div class="flex justify-center w-full text-white font-bold mt-12 md:mt-15 p-1">
+            <div class="flex justify-center w-full text-white font-bold mt-15 md:mt-5 p-1">
                 <p class=" md:w-[35%] text-[#B2BEB5] text-[18px] text-center italic opacity-60">Transformo ideias em sistemas que funcionam de verdade, construídos do seu jeito.</p>
             </div>
 
-            <div class="mt-auto w-full rounded-md p-3">
+            <div class="mt-[25%] sm:mt-auto w-full rounded-md p-3">
                 <TechnologiesLoop client:visible/>
             </div>
         </div>
