@@ -1,7 +1,7 @@
 ---
-import { TooltipProvider } from "@/shared/components/ui/tooltip"
 import Header from "../shared/components/Header.astro"
 import '../styles/global.css'
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <!doctype html>
@@ -14,9 +14,12 @@ import '../styles/global.css'
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Portfolio de Allan Herbert, desenvolvedor full stack."/>
 		<title>Allan Sancho - Portfólio</title>
+
+		<!-- vercel analytics -->
+		 <Analytics />
 	</head>
-	<body>
-		<Header></Header>
+	<body class="flex flex-col">
+		<Header />
 		<slot />
 	</body>
 </html>
